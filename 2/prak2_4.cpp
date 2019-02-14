@@ -18,6 +18,10 @@ int main(int argc, char const *argv[])
     } else {
         t = y /(a - x);
     }
-    cout << "a = " << a << '\n' << "x = " << x << '\n' << "y = " << y << '\n' << "t = " << t << '\n';
+    if ((y == NAN) || (t == NAN)) {
+        cout<<"Ошибка в вычислениях"<< endl;
+    } else {
+        cout << "a = " << a << '\n' << "x = " << x << '\n' << "y = " << y << '\n' << "t = " << t << '\n';
+    }
     return 0;
 }

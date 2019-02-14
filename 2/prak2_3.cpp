@@ -18,6 +18,10 @@ int main(int argc, char const *argv[])
     } else {
         t = pow(y * sin(a),float(1)/3) + float(1)/sqrt(y*cos(b));
     }
-    cout << "a = " << a << '\n' << "b = " << b << '\n' << "y = " << y << '\n' << "t = " << t << '\n';
+    if ((y == NAN) || (t == NAN)) {
+        cout<<"Ошибка в вычислениях"<< endl;
+    } else {
+        cout << "a = " << a << '\n' << "b = " << b << '\n' << "y = " << y << '\n' << "t = " << t << '\n';
+    }
     return 0;
 }
