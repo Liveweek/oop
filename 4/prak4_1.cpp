@@ -10,6 +10,12 @@ void print_menu() {
     cout << "5: Выйти и программы" << endl;
 }
 
+
+void set_memory(double* array, int *length_array);//метод, устанавливающий кол-во выделяемой памяти на массив
+void set_value(double* array, int length_array, int result);//метод, заполняющий значения элементов массива, который может быть как ручным, так и случайным
+void print_array(double* array, int length_array, bool check);//вывод массива на кран
+void remove(double* array, int *length, bool *check);//полное удаление массива из памяти (также обнуляются параметры массива)
+
 int main() {
     srand(time(0));
     int length_array = 0;
@@ -24,14 +30,7 @@ int main() {
         switch (answer) {
             case 1: 
                 system("clear");
-                if (length_array != 0) {
-                    cout << "Ошибка! Перед тем как создать новый массив удалите его из памяти!" << endl;
-                } else {
-                    cout << "Введите длину массива: ";
-                    cin >> length_array;
-                    array = new double[length_array];
-                    cout << "Массив длинной " << length_array << " был создан." << endl;
-                }
+                set_memory(array,&length_array);
                 cin >> some;
                 system("clear");//данная команда работает только на MacOS
                 break;
@@ -42,14 +41,7 @@ int main() {
                 } else {
                     cout << "Зполнить рандомно(0) или в ручную(1)?";
                     cin >> answer;
-                    for (int i = 0; i < length_array; i++) {
-                        if (answer) {
-                            cout << "Элемент " << i << " массива: ";
-                            cin >> array[i];
-                        } else {
-                            array[i] = float(rand()%1000 +1) /100;
-                        }
-                    }
+                    set_value(array,length_array,answer);
                     cout << "Массив сформирован по значениям" << endl;
                     isFool = true;
                 }
@@ -58,30 +50,13 @@ int main() {
                 break;
             case 3:
                 system("clear");
-                if (length_array == 0) {
-                    cout << "Ошибка! Невозможно вывести несуществующий массив. Перед этим проинициализируйте его." << endl;
-                } else {
-                    if (isFool) {
-                        for (int i = 0; i < length_array; i++) {
-                            cout << i << " --- " << array[i] << endl;;
-                        }
-                    } else {
-                        cout << "Массив создан, однако его нужно заполнить значениями!" << endl;
-                    }
-                }
+                print_array(array, length_array, isFool);
                 cin >> some;
                 system("clear");
                 break;
             case 4:
                 system("clear");
-                if (length_array == 0) {
-                    cout << "Вы пытаетесь удалить из памяти массив, который не существует. Перед этим создайте массив." << endl;
-                } else {
-                    delete [] array;
-                    length_array = 0;
-                    isFool = false;
-                    cout << "Массив был удалён" << endl;
-                }
+                remove(array, &length_array, &isFool);
                 cin >> some;
                 system("clear");
                 break;
@@ -95,5 +70,52 @@ int main() {
         if (isExit) {
             break;
         }
+    }
+}
+
+void set_memory(double* array, int *length_array) {
+    if (*length_array != 0) {
+        cout << "Ошибка! Перед тем как создать новый массив удалите его из памяти!" << endl;
+    } else {
+        cout << "Введите длину массива: ";
+        cin >> *length_array;
+        array = new double[*length_array];
+        cout << "Массив длинной " << *length_array << " был создан." << endl;
+    }
+}
+
+void set_value(double* array,int length_array,int result) {
+    for (int i = 0; i < length_array; i++) {
+        if (result) {
+            cout << "Элемент " << i << " массива: ";
+            cin >> array[i];
+        } else {
+            array[i] = float(rand()%1000 +1) /100;
+        }
+    }
+}
+
+void print_array(double* array, int length_array, bool check) {
+    if (length_array == 0) {
+        cout << "Ошибка! Невозможно вывести несуществующий массив. Перед этим проинициализируйте его." << endl;
+    } else {
+        if (check) {
+            for (int i = 0; i < length_array; i++) {
+                cout << i << " --- " << array[i] << endl;;
+            }
+        } else {
+            cout << "Массив создан, однако его нужно заполнить значениями!" << endl;
+        }
+    }
+}
+
+void remove(double* array, int *length, bool *check) {
+    if (*length == 0) {
+        cout << "Вы пытаетесь удалить из памяти массив, который не существует. Перед этим создайте массив." << endl;
+    } else {
+        delete [] array;
+        *length = 0;
+        *check = false;
+        cout << "Массив был удалён" << endl;
     }
 }
