@@ -2,7 +2,7 @@
 #include <time.h>
 using namespace std;
 
-
+int * sw(int * array, int length);//функция, которая меняет соседний чётные и нечётный элементы
 int * sw(int * array, int length) {
     for ( int i = 0; i < length - 1 ; i = i + 2) {
         int tmp;

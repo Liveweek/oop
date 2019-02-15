@@ -9,8 +9,8 @@ void print_menu() {
     cout << "4: Удалить массив и очистить память" << endl;
     cout << "5: Выйти и программы" << endl;
 }
-double * s_memory(int * length_array);
-double * s_value(double * array, int length_array, int result);
+double * s_memory(int * length_array);//функция, выделяющая в массиве память на заданную длину
+double * s_value(double * array, int length_array, int result);//функция, заполняющая массив значениями: случайными или заданными в зависимости от result
 void print_array(double* array, int length_array, bool check);//вывод массива на кран
 double* remove(double* array, int *length, bool *check);//полное удаление массива из памяти (также обнуляются параметры массива)
 
