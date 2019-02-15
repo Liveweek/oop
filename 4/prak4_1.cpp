@@ -12,7 +12,7 @@ void print_menu() {
 double * s_memory(int * length_array);
 double * s_value(double * array, int length_array, int result);
 void print_array(double* array, int length_array, bool check);//вывод массива на кран
-void remove(double* array, int *length, bool *check);//полное удаление массива из памяти (также обнуляются параметры массива)
+double* remove(double* array, int *length, bool *check);//полное удаление массива из памяти (также обнуляются параметры массива)
 
 int main() {
     srand(time(0));
@@ -54,7 +54,7 @@ int main() {
                 break;
             case 4:
                 system("clear");
-                remove(array, &length_array, &isFool);
+                array = remove(array, &length_array, &isFool);
                 cin >> some;
                 system("clear");
                 break;
@@ -109,7 +109,7 @@ void print_array(double* array, int length_array, bool check) {
     }
 }
 
-void remove(double* array, int *length, bool *check) {
+double * remove (double* array, int *length,bool *check) {
     if (*length == 0) {
         cout << "Вы пытаетесь удалить из памяти массив, который не существует. Перед этим создайте массив." << endl;
     } else {
@@ -118,5 +118,6 @@ void remove(double* array, int *length, bool *check) {
         *length = 0;
         *check = false;
         cout << "Массив был удалён" << endl;
+        return array;
     }
 }
