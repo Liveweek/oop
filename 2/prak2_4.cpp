@@ -18,7 +18,7 @@ int main(int argc, char const *argv[])
     } else {
         t = y /(a - x);
     }
-    if ((y == NAN) || (t == NAN)) {
+    if ((isnan(y)) || (isnan(t))) {
         cout<<"Ошибка в вычислениях"<< endl;
     } else {
         cout << "a = " << a << '\n' << "x = " << x << '\n' << "y = " << y << '\n' << "t = " << t << '\n';
