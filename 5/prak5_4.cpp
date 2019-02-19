@@ -85,13 +85,13 @@ T del(T a,T b) {
 
 
 int main() {
-    //интовые переменные
+    //целочисленные переменные
     int int_a = 4;
     int int_b = 2;
 
     //переменные float
     float f_a = 5;
-    float f_b = 2;
+    float f_b = 2.6;
 
     //переменные double
     double d_a = 7;

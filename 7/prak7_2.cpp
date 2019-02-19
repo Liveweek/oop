@@ -22,11 +22,12 @@ class Rhombus : public Quadrangle {
         }
 };
 
-class Square : public Quadrangle {
+class Rectangle : public Quadrangle {
     public:
-        int side;
+        int side_a, side_b;
         int angle = 90;
-        Square(int s) {
-            side = s;
+        Rectangle(int s1, int s2) {
+            side_a = s1;
+            side_b = s2;
         } 
 }
