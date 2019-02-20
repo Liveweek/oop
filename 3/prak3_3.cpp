@@ -1,6 +1,7 @@
 #include <string>
 #include <iostream>
 using namespace std;
+
 struct Book {
     int year;
     int count_of_pages;

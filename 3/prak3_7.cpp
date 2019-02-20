@@ -6,7 +6,7 @@ struct library {
     string adress;
     string status;
     Book books[100];
-}
+};
 
 int main() {
     library lib = {
