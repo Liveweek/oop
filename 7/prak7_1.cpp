@@ -3,25 +3,6 @@ using namespace std;
 
 enum konech { WINGS, PAWS, BEAK, TAIL};
 
-string print_features(konech x) {
-    switch (x)
-    {
-        case WINGS:
-            return "крылья";
-            break;
-        case PAWS:
-            return "лапы";
-            break;
-        case BEAK:
-            return "клюв";
-            break;
-        case TAIL:
-            return "хвост";
-            break;
-    }
-}
-
-
 class Animal {
     public:
         string name;
@@ -34,6 +15,7 @@ class Animal {
 class Cat : public Animal {
     public:
         konech bonus_feature = TAIL;
+        konech feature = PAWS;
         Cat( int s, int w, konech k, string nam) {
             name = nam;
             size = s;
@@ -48,6 +30,7 @@ class Cat : public Animal {
 class Dog : public Animal {
     public:
         konech bonus_feature = TAIL;
+        konech feature = PAWS;
         Dog( int s, int w, konech k, string nam) {
             name = nam;
             size = s;
@@ -62,6 +45,7 @@ class Dog : public Animal {
 class Bird : public Animal {
     public:
         konech bonus_feature = BEAK;
+        konech feature = WINGS;
         Bird( int s, int w, konech k,string nam) {                        name = nam;
             name = nam;
             size = s;
