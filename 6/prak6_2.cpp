@@ -1,12 +1,13 @@
 #include <iostream>
 #include <math.h>
 using namespace std;
+
 class Function {
     public:
         virtual void print_f() = 0;
         virtual float result(float x) = 0;
         virtual void dx() = 0;
-        // virtual Function copy() = 0;
+        virtual Function* copy() = 0;
 };
 
 class Constanta: public Function {
@@ -19,6 +20,10 @@ class Constanta: public Function {
         }
         void dx() {
             cout << "f'(x) = 0" << endl;
+        }
+        Function* copy() override {
+            Function* f = new Constanta;
+            return f;
         }
 };
 
@@ -33,6 +38,10 @@ class Value : public Function {
         void dx() {
             cout << "f'(x) = 1" << endl;
         }
+        Function* copy() override {
+            Function* f = new Value;
+            return f;
+        }
 };
 
 class Summa: public Function {
@@ -45,6 +54,10 @@ class Summa: public Function {
         }
         void dx() {
             cout << "f'(x) = 2*x + 1";
+        }
+        Function* copy() override {
+            Function* f = new Summa;
+            return f;
         }
 };
 
@@ -59,6 +72,10 @@ class Raznost: public Function {
         void dx() {
             cout << "f'(x) = 3 - 3*x^2" << endl;
         }
+        Function* copy() override {
+            Function* f = new Raznost;
+            return f;
+        }
 };
 
 class Proiz : public Function {
@@ -71,6 +88,10 @@ class Proiz : public Function {
         }
         void dx() {
             cout << "f'(x) = 3x^2 + (3x - 1) * 2x" << endl;
+        }
+        Function* copy() override {
+            Function* f = new Proiz;
+            return f;
         }
 };
 
@@ -85,6 +106,10 @@ class Chastnoe : public Function {
         void dx() {
             cout << "f'(x) = (8x(3x + 7) - 3(4x^2 - 5))/(3x + 7)^2" << endl;
         }
+        Function* copy() override {
+            Function* f = new Chastnoe;
+            return f;
+        }
 };
 
 class Sinus : public Function {
@@ -97,6 +122,10 @@ class Sinus : public Function {
         }
         void dx() {
             cout << "f'(x) = cos(x)" << endl;
+        }
+        Function* copy() override {
+            Function* f = new Sinus;
+            return f;
         }
 };
 
@@ -111,6 +140,10 @@ class Cosinus : public Function {
         void dx() {
             cout << "f'(x) = - sin(x)" << endl;
         }
+        Function* copy() override {
+            Function* f = new Cosinus;
+            return f;
+        }
 };
 
 class Expo : public Function {
@@ -123,6 +156,10 @@ class Expo : public Function {
         }
         void dx() {
             cout << "f'(x) = exp(x)" << endl;
+        }
+        Function* copy() override {
+            Function* f = new Expo;
+            return f;
         }
 };
 
@@ -137,18 +174,8 @@ class LogN: public Function {
         void dx() {
             cout << "f'(x) = 1/x" << endl;
         }
+        Function* copy() override {
+            Function* f = new LogN;
+            return f;
+        }
 };
-
-int main() {
-    Constanta fun1;
-    Value fun2;
-    Summa fun3;
-    Raznost fun4;
-    Proiz fun5;
-    Chastnoe fun6;
-    Sinus fun7;
-    Cosinus fun8;
-    Expo fun9;
-    LogN fun10;
-
-}
