@@ -46,7 +46,7 @@ class Bird : public Animal {
     public:
         konech bonus_feature = BEAK;
         konech feature = WINGS;
-        Bird( int s, int w, konech k,string nam) {                        name = nam;
+        Bird( int s, int w, konech k,string nam) {
             name = nam;
             size = s;
             weight = w;
