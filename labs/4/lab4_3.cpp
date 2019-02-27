@@ -7,9 +7,9 @@ class Complex {
         float re;
         float im;
     public:
-        void set_value(float a, float b) {
-            this -> re = a;
-            this -> im = b;
+        Complex(float a, float b) {
+            re = a;
+            im = b;
         };
         float get_abs() {
             return sqrt(pow(re,2)+pow(im,2));
@@ -23,9 +23,7 @@ class Complex {
 };
 
 int main() {
-    Complex z1,z2;
-    z1.set_value(2,5);
-    z2.set_value(5,4.2);
+    Complex z1(5,2.2),z2(2,4.5);
     z1.getData();
     z2.getData();
     return 0;
