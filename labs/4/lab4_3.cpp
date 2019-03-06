@@ -1,30 +1,32 @@
 #include <iostream>
-#include <cmath>
+#include <string>
 using namespace std;
 
-class Complex {
-    private:
-        float re;
-        float im;
+class Tiles {
     public:
-        Complex(float a, float b) {
-            re = a;
-            im = b;
+        string brand;
+        int size_h;
+        int size_w;
+        int price;
+        Tiles(string b, int h, int w, int p) {
+            brand = b;
+            size_h = h;
+            size_w = w;
+            price = p;
         };
-        float get_abs() {
-            return sqrt(pow(re,2)+pow(im,2));
-        };
-        float getData() {
-            cout << "Комплексное число: "<< endl;
-            cout << "Действительная часть: " << re << endl;
-            cout << "Мнимая часть: " << im << endl;
-            cout << "Модуль числа: " << this->get_abs() << endl << endl;
+        void getData() {
+            cout << "=======================" << endl;
+            cout << "Брэнд: " << '\t' << brand << endl;
+            cout << "Длина: " << '\t' << size_h << endl;
+            cout << "Ширина: " << '\t' << size_w << endl;
+            cout << "Цена: " << '\t' << price << endl;
+            cout << "=======================" << endl;
         };
 };
 
 int main() {
-    Complex z1(5,2.2),z2(2,4.5);
-    z1.getData();
-    z2.getData();
+    Tiles t1((string)"Ёлочка", 12,10,200),t2((string)"Дубочёк", 40,25,350);
+    t1.getData();
+    t2.getData();
     return 0;
 }

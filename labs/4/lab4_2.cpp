@@ -1,32 +1,27 @@
 #include <iostream>
-#include <string>
+#include <cmath>
 using namespace std;
 
-class Tiles {
+class Vector {
+    private:
+        float x;
+        float y;
     public:
-        string brand;
-        int size_h;
-        int size_w;
-        int price;
-        Tiles(string b, int h, int w, int p) {
-            brand = b;
-            size_h = h;
-            size_w = w;
-            price = p;
+        Vector(float a, float b) {
+            x = a;
+            y = b;
+        }
+        float get_abs() {
+            return sqrt(x*x + y*y);
         };
-        void getData() {
-            cout << "=======================" << endl;
-            cout << "Брэнд: " << '\t' << brand << endl;
-            cout << "Длина: " << '\t' << size_h << endl;
-            cout << "Ширина: " << '\t' << size_w << endl;
-            cout << "Цена: " << '\t' << price << endl;
-            cout << "=======================" << endl;
-        };
-};
 
-int main() {
-    Tiles t1((string)"Ёлочка", 12,10,200),t2((string)"Дубочёк", 40,25,350);
-    t1.getData();
-    t2.getData();
-    return 0;
+        void plus(Vector b) {
+            x += b.x;
+            y += b.y;
+        };
+        
+        void minus(Vector b) {
+            x -= b.x;
+            y -= b.y;
+        };
 }

@@ -1,33 +1,30 @@
 #include <iostream>
-#include <string>
+#include <cmath>
 using namespace std;
 
-class Child {
+class Complex {
     private:
-        string name;
-        string family;
-        int age;
+        float re;
+        float im;
     public:
-        int some;
-        Child(string n, string f, int a) {
-            this->age = a;
-            this->name = n;
-            this->family = f;
+        Complex(float a, float b) {
+            re = a;
+            im = b;
         };
-
-        void print_value() {
-            cout << "===================" << endl;
-            cout << "Имя: " << name << endl;
-            cout << "Фамилия: " << family << endl;
-            cout << "Возраст: " << age << endl;
-            cout << "===================" << endl;
+        float get_abs() {
+            return sqrt(pow(re,2)+pow(im,2));
+        };
+        float getData() {
+            cout << "Комплексное число: "<< endl;
+            cout << "Действительная часть: " << re << endl;
+            cout << "Мнимая часть: " << im << endl;
+            cout << "Модуль числа: " << this->get_abs() << endl << endl;
         };
 };
 
-int main(int argc, char const *argv[])
-{
-    Child ch1((string)"Павел", (string)"Конаков", 18),ch2((string)"Марина", (string)"Казарян", 18);
-    ch1.print_value();
-    ch2.print_value();
+int main() {
+    Complex z1(5,2.2),z2(2,4.5);
+    z1.getData();
+    z2.getData();
     return 0;
 }

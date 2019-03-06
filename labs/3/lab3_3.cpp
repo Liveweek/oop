@@ -21,12 +21,3 @@ class Complex {
             cout << "Модуль числа: " << this->get_abs() << endl << endl;
         };
 };
-
-int main() {
-    Complex z1,z2;
-    z1.set_value(2,5);
-    z2.set_value(5,4.2);
-    z1.getData();
-    z2.getData();
-    return 0;
-}

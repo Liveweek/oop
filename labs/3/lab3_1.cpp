@@ -8,11 +8,16 @@ class Child {
         string family;
         int age;
     public:
-        int some;
-        void set_value(string n, string f, int a) {
-            this->age = a;
-            this->name = n;
-            this->family = f;
+        void set_name(string name) {
+            this->name = name;
+        };
+
+        void set_family(string family) {
+            this->family = family;
+        };
+
+        void set_age(int age) {
+            this->age = age;
         };
 
         void print_value() {
@@ -27,8 +32,12 @@ class Child {
 int main(int argc, char const *argv[])
 {
     Child ch1,ch2;
-    ch1.set_value((string)"Павел", (string)"Конаков", 18);
-    ch2.set_value((string)"Марина", (string)"Казарян", 18);
+    ch1.set_name((string)"Павел");
+    ch1.set_family((string)"Конаков");
+    ch1.set_age(18);
+    ch2.set_name((string)"Анатолий");
+    ch2.set_family((string)"Яровиков");
+    ch2.set_age(18);
     ch1.print_value();
     ch2.print_value();
     return 0;
