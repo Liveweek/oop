@@ -11,9 +11,11 @@ class Complex {
             re = a;
             im = b;
         };
+
         float get_abs() {
             return sqrt(pow(re,2)+pow(im,2));
         };
+        
         float getData() {
             cout << "Комплексное число: "<< endl;
             cout << "Действительная часть: " << re << endl;
